@@ -10,7 +10,7 @@ let quizeNumber = getNumberRange(prompt: "\(Colors.blue)How many questions\(Colo
 print("\nOkay good, I created random \(quizeNumber) questions for you. Let's get started!\n")
 
 var solvedQuizNumber: Int = 1
-var wrongQuize: [WorngData] =  []
+var wrongQuize: [Quiz] =  []
 while(solvedQuizNumber <= quizeNumber){
     let randomCase = CASE_ORDER[(Int.random(in: 0...(CASE_ORDER.count-1)))]
     let randomGender = GENDER_ORDER[Int.random(in: 0...(GENDER_ORDER.count-1))]
@@ -26,8 +26,8 @@ while(solvedQuizNumber <= quizeNumber){
                 pass = true
             }else{
                 print("\(Colors.red)Wrong, Try Again!\(Colors.reset) The correct answer starts with an \(ARTICLE_ORDER[quizType.rawValue]![randomGender]![randomCase.rawValue - 1].prefix(1))")
-                let worng = WorngData(wongGender: randomGender, worngCase: randomCase)
-                wrongQuize.append(worng)
+                let wrong = Quiz(gender: randomGender, _case: randomCase)
+                wrongQuize.append(wrong)
             }
         }
     }    
@@ -49,5 +49,5 @@ print("════════════════════════�
 print(message)
 print("══════════════════════════════════════════════════════════════════");
 for q in wrongQuize{
-    print(">\(Colors.red) \(q.wongGender.rawValue)-\(q.worngCase)(\(q.worngCase.rawValue))\(Colors.reset) which is \(Colors.yellow)\(DEFINITE_DATA[q.wongGender]![q.worngCase.rawValue - 1]) \(Colors.reset)")
+    print(">\(Colors.red) \(q.gender.rawValue)-\(q._case)(\(q._case.rawValue))\(Colors.reset) which is \(Colors.yellow)\(DEFINITE_DATA[q.gender]![q._case.rawValue - 1]) \(Colors.reset)")
 }

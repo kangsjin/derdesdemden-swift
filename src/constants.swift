@@ -71,7 +71,7 @@ let ARTICLE_ORDER = [nil, DEFINITE_DATA, INDEFINITE_DATA, NEGATIVE_DATA]
 
 let PADDING_LENGTH: Int = 9
 
-struct WorngData {
-    var wongGender: Genders
-    var worngCase: Cases
+struct Quiz {
+    var gender: Genders
+    var _case: Cases
 }
